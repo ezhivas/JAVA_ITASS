@@ -1,5 +1,75 @@
 package taskat4;
 
+import java.io.IOException;
+
 public abstract class Human {
 
+    private final boolean gender;
+    private String name;
+    private String surname;
+    private float height;
+    private float weight;
+
+    public Human(boolean gender, String name, String surname, float height, float weight) {
+        this.gender = gender;
+        this.name = name;
+        this.surname = surname;
+        this.height = height;
+        this.weight = weight;
+    }
+    public String toString(boolean bo) {
+        String str;
+        if (bo) str = "Male";
+        else str = "Female";
+        return ("This human " + name + " and surname " + surname + ", is " + height + " cm tall and " + weight + "weight kilo is " + str);
+    }
+    public boolean beTogether(float ek1, float ek2) {
+        if (ek1 > ek2) {
+            if (((ek2 / ek1) < 0.9) && (Math.random() < 0.85))
+                return true;
+            else if
+            ((((ek2 / ek1) > 0.9) && (Math.random() < 0.95)))
+                return true;
+        }
+        return false;
+    }
+    public Human canDate(Men men, Women women) throws IOException {
+
+        if ((men.isGender()) | (women.isGender())) {
+            if ((men.canTalk(women.isGender())) && (men.canTolerate(women.isGender())) && (men.beTogether(men.getHeight(), getWeight())))
+                return (women.birth(men, women));
+        }
+        System.out.println("They cannot be together. OOPS!");
+        return null;
+    }
+    public boolean isGender() {
+        return gender;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getSurname() {
+        return surname;
+    }
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+    public float getHeight() {
+        return height;
+    }
+    public void setHeight(float height) {
+        this.height = height;
+    }
+    public float getWeight() {
+        return weight;
+    }
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
 }
+
+
+

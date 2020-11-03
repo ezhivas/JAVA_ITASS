@@ -10,30 +10,39 @@ public class Women extends Human {
     }
 
     public boolean canTalk(boolean bo) {
-        return true;
+        // It returns true whenever because female can talk to both male and female in every case
+        bo = true;
+        return bo;
     }
 
     public boolean canTolerate(boolean bo) {
         if ((!bo) && (Math.random() < 0.05))
             return true;
-        else if ((bo) && (Math.random() < 0.7))
-            return true;
-        return false;
+        else return (bo) && (Math.random() < 0.7);
     }
 
-    protected Women birth(Men men, Women women) throws IOException {
+    public Human birth(Human human1, Human human2) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         if (Math.random() < 0.5) {
             System.out.println("Please enter the name for your daughter:");
             String name = reader.readLine();
-            String surname = men.getSurname();
-            float height = (float) ((women.getHeight()) + 0.1 * (men.getHeight() - women.getHeight()));
-            float weight = (float) ((women.getWeight()) + 0.1 * (men.getWeight() - women.getWeight()));
+            String surname = human1.getSurname();
+            float height = (float) ((human2.getHeight()) + 0.1 * (human1.getHeight() - human2.getHeight()));
+            float weight = (float) ((human2.getWeight()) + 0.1 * (human1.getWeight() - human2.getWeight()));
             Women women2 = new Women(name, surname, height, weight);
             System.out.println(women2.toString(false));
             return women2;
         }
-        return null;
+        else {
+            System.out.println("Please enter the name for your daughter:");
+            String name = reader.readLine();
+            String surname = human1.getSurname();
+            float height = (float) ((human2.getHeight()) + 0.1 * (human1.getHeight() - human2.getHeight()));
+            float weight = (float) ((human2.getWeight()) + 0.1 * (human1.getWeight() - human2.getWeight()));
+            Men men2 = new Men(name, surname, height, weight);
+            System.out.println(men2.toString(true));
+            return men2;
+        }
     }
 }
 

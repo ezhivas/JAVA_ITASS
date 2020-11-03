@@ -10,11 +10,12 @@ public class Main {
         try{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        /* Two instances for quick testing
-        Women women1 = new Women("ANGE", "surname", 168, 59);
-        Men men1 = new Men("SERG", "Vasilets", 178, 74);*/
+        /*Two instances for quick testing
+        For quick Test comment lines from 18 to 37 and uncomment 15 to 16*/
+        //Women women1 = new Women("ANGEl", "Safo", 168, 59);
+        //Men men1 = new Men("SERG", "Vasilets", 178, 74);
 
-        System.out.println("Please enter first Human name");
+        System.out.println("Please enter Men`s name");
         String name = reader.readLine();
         System.out.println("Please enter first Human surname");
         String surname = reader.readLine();

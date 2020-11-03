@@ -17,12 +17,14 @@ public abstract class Human {
         this.height = height;
         this.weight = weight;
     }
+
     public String toString(boolean bo) {
         String str;
         if (bo) str = "Male";
         else str = "Female";
         return ("This human " + name + " and surname " + surname + ", is " + height + " cm tall and " + weight + "weight kilo is " + str);
     }
+
     public boolean beTogether(float ek1, float ek2) {
         if (ek1 > ek2) {
             if (((ek2 / ek1) < 0.9) && (Math.random() < 0.85))
@@ -33,15 +35,29 @@ public abstract class Human {
         }
         return false;
     }
-    public Human canDate(Men men, Women women) throws IOException {
 
-        if ((men.isGender()) | (women.isGender())) {
-            if ((men.canTalk(women.isGender())) && (men.canTolerate(women.isGender())) && (men.beTogether(men.getHeight(), getWeight())))
-                return (women.birth(men, women));
+    public Human canDate(Human human1, Human human2) throws IOException {
+
+
+        if ((human1 instanceof Men) && (human2 instanceof Women)) {
+            if ((((Men) human1).canTalk(human2.isGender())) && (((Men) human1).canTolerate(human2.isGender()))
+                    && (human1.beTogether(human1.getHeight(), human2.getHeight()))) {
+                System.out.println("Its OK");
+                return (((Women) human2).birth(human1, human2));
+            }
         }
+        else if
+        ((human1 instanceof Women) && (human2 instanceof Men)) {
+            if ((((Women) human1).canTalk(human2.isGender())) && (((Women) human1).canTolerate(human2.isGender()))
+                    && (human1.beTogether(human1.getHeight(), human2.getHeight()))) {
+                System.out.println("It`s OK");
+                return (((Women) human1).birth(human2, human1));
+            }
+        }
+
         System.out.println("They cannot be together. OOPS!");
         return null;
-    }
+}
     public boolean isGender() {
         return gender;
     }

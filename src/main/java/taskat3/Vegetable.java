@@ -2,27 +2,25 @@ package taskat3;
 
 public abstract class Vegetable {
     private int calorie;
-    private int weight;
-    private String name;
-    private VgtblList list = VgtblList.Vgtbl;
+    private final int weight;
+    private final String name;
+    private final VegetableCalList list = VegetableCalList.Vegetable;
 
-    private enum VgtblList {Vgtbl, CARROT, POTATO, CUCUMBER, TOMATO}
+   private enum VegetableCalList {Vegetable, CARROT, POTATO, CUCUMBER, TOMATO}
 
     Vegetable(String name, int weight) {
         this.name = name;
         this.weight = weight;
 
     }
-
     abstract String cooking();
-
     int getCalories() {
-        switch (list.valueOf(name)) {
+        switch (VegetableCalList.valueOf(name)) {
             case CARROT:
-                calorie = 33;
+                calorie = 66;
                 break;
             case POTATO:
-                calorie = 43;
+                calorie = 97;
                 break;
             case CUCUMBER:
                 calorie = 106;
@@ -37,11 +35,9 @@ public abstract class Vegetable {
 
         return calorie;
     }
-
-    int getWght() {
+    int getWeight() {
         return weight;
     }
-
     String getName() {
         return name;
     }

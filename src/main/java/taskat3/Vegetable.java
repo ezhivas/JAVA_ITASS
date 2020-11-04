@@ -1,21 +1,49 @@
 package taskat3;
 
-
-import java.util.ArrayList;
-
 public abstract class Vegetable {
+    private int calorie;
+    private int weight;
+    private String name;
+    private VgtblList list = VgtblList.Vgtbl;
 
-    String [] vegetablesNames = {"potato" ,"carrot" ,"tomato" , "cucumber"};
-    String [] colors = {"grey", "red", "red", "green"};
-    int[] weight = {10,20,15,12};
-    int[] calories = {100, 120,15, 23};
+    private enum VgtblList {Vgtbl, CARROT, POTATO, CUCUMBER, TOMATO}
 
-    public Vegetable(String[] vegetablesNames, String[] colors, int[] weight, int[] calories) {
-        this.vegetablesNames = vegetablesNames;
-        this.colors = colors;
+    Vegetable(String name, int weight) {
+        this.name = name;
         this.weight = weight;
-        this.calories = calories;
+
     }
-    Vegetable veg1 = new Vegetable(vegetablesNames[1],colors[1],) {
+
+    abstract String cooking();
+
+    int getCalories() {
+        switch (list.valueOf(name)) {
+            case CARROT:
+                calorie = 33;
+                break;
+            case POTATO:
+                calorie = 43;
+                break;
+            case CUCUMBER:
+                calorie = 106;
+                break;
+            case TOMATO:
+                calorie = 25;
+                break;
+            default:
+                calorie = 0;
+                System.out.println("No calories");
+        }
+
+        return calorie;
     }
+
+    int getWght() {
+        return weight;
+    }
+
+    String getName() {
+        return name;
+    }
+
 }

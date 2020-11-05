@@ -1,45 +1,55 @@
 package taskat3;
 
-public abstract class Vegetable {
-    private int calorie;
-    private final int weight;
+import java.util.Objects;
+
+public class Vegetable extends Chief {
     private final String name;
-    private final VegetableCalList list = VegetableCalList.Vegetable;
+    private final String color;
+    private final double weight;
+    private final double calories;
 
-   private enum VegetableCalList {Vegetable, CARROT, POTATO, CUCUMBER, TOMATO}
-
-    Vegetable(String name, int weight) {
-        this.name = name;
-        this.weight = weight;
-
+    public Vegetable(String Name, String Color, double Weight, int Calories) {
+        this.name = Name;
+        this.color = Color;
+        this.weight = Weight;
+        this.calories = Calories;
     }
-    abstract String cooking();
-    int getCalories() {
-        switch (VegetableCalList.valueOf(name)) {
-            case CARROT:
-                calorie = 66;
-                break;
-            case POTATO:
-                calorie = 97;
-                break;
-            case CUCUMBER:
-                calorie = 106;
-                break;
-            case TOMATO:
-                calorie = 25;
-                break;
-            default:
-                calorie = 0;
-                System.out.println("No calories");
-        }
 
-        return calorie;
-    }
-    int getWeight() {
-        return weight;
-    }
-    String getName() {
+    public String getName() {
         return name;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public double getCalories() {
+        return calories;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Vegetable vegetable = (Vegetable) object;
+        return Double.compare(vegetable.getWeight(), getWeight()) == 0 &&
+                Double.compare(vegetable.getCalories(), getCalories()) == 0 &&
+                Objects.equals(getName(), vegetable.getName()) &&
+                Objects.equals(getColor(), vegetable.getColor());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getColor(), getWeight(), getCalories());
+    }
+
+    @Override
+    public String toString() {
+        return "[ Vegetable : " + getName() + ", Color - " + getColor()
+                + ", Weight - " + getWeight() + " Calories - " + getCalories() + " ]";
+    }
 }

@@ -33,8 +33,8 @@ public class Main {
         System.out.println("Please enter first Human weight");
         weight = Float.parseFloat(reader.readLine());
         Women women1 = new Women(name, surname, height, weight);
-        System.out.println(men1.toString(true));
-        System.out.println(women1.toString(false));
+        System.out.println(men1.toString());
+        System.out.println(women1.toString());
 
         System.out.println("Man can communicate to women: " + men1.canTalk(women1.isGender()));
         System.out.println("Women can communicate to men: " + women1.canTalk(men1.isGender()));

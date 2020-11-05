@@ -17,28 +17,18 @@ public abstract class Human {
         this.height = height;
         this.weight = weight;
     }
-
-    public String toString(boolean bo) {
-        String str;
-        if (bo) str = "Male";
-        else str = "Female";
-        return ("This human " + name + " and surname " + surname + ", is " + height + " cm tall and " + weight + "weight kilo is " + str);
+    public String toString() {
+        return ("This human " + name + " and surname " + surname + ", is " + height + " cm tall and " + weight + "weigh");
     }
-
     public boolean beTogether(float ek1, float ek2) {
         if (ek1 > ek2) {
             if (((ek2 / ek1) < 0.9) && (Math.random() < 0.85))
                 return true;
-            else if
-            ((((ek2 / ek1) > 0.9) && (Math.random() < 0.95)))
-                return true;
+            else return ((ek2 / ek1) > 0.9) && (Math.random() < 0.95);
         }
         return false;
     }
-
     public Human canDate(Human human1, Human human2) throws IOException {
-
-
         if ((human1 instanceof Men) && (human2 instanceof Women)) {
             if ((((Men) human1).canTalk(human2.isGender())) && (((Men) human1).canTolerate(human2.isGender()))
                     && (human1.beTogether(human1.getHeight(), human2.getHeight()))) {
@@ -54,10 +44,9 @@ public abstract class Human {
                 return (((Women) human1).birth(human2, human1));
             }
         }
-
         System.out.println("They cannot be together. OOPS!");
         return null;
-}
+    }
     public boolean isGender() {
         return gender;
     }
@@ -85,6 +74,8 @@ public abstract class Human {
     public void setWeight(float weight) {
         this.weight = weight;
     }
+
+
 }
 
 

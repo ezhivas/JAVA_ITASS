@@ -10,7 +10,7 @@ public class Women extends Human {
     }
 
     public boolean canTalk(boolean bo) {
-        // It returns true whenever because female can talk to both male and female in every case
+        // It always returns true because female can talk to both male and female in every case
         bo = true;
         return bo;
     }
@@ -30,7 +30,7 @@ public class Women extends Human {
             float height = (float) ((human2.getHeight()) + 0.1 * (human1.getHeight() - human2.getHeight()));
             float weight = (float) ((human2.getWeight()) + 0.1 * (human1.getWeight() - human2.getWeight()));
             Women women2 = new Women(name, surname, height, weight);
-            System.out.println(women2.toString(false));
+            System.out.println(women2.toString());
             return women2;
         }
         else {
@@ -40,7 +40,7 @@ public class Women extends Human {
             float height = (float) ((human2.getHeight()) + 0.1 * (human1.getHeight() - human2.getHeight()));
             float weight = (float) ((human2.getWeight()) + 0.1 * (human1.getWeight() - human2.getWeight()));
             Men men2 = new Men(name, surname, height, weight);
-            System.out.println(men2.toString(true));
+            System.out.println(men2.toString());
             return men2;
         }
     }

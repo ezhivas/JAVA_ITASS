@@ -17,7 +17,6 @@ public abstract class Human {
         this.height = height;
         this.weight = weight;
     }
-
     public boolean beTogether(float ek1, float ek2) {
         if (ek1 > ek2) {
             if (((ek2 / ek1) < 0.9) && (Math.random() < 0.85))
@@ -26,7 +25,6 @@ public abstract class Human {
         }
         return false;
     }
-
     public Human canDate(Human human1, Human human2) throws IOException {
         if ((human1 instanceof Men) && (human2 instanceof Women)) {
             if ((((Men) human1).canTalk(human2.isGender())) && (((Men) human1).canTolerate(human2.isGender()))
@@ -81,7 +79,6 @@ public abstract class Human {
     public void setWeight(float weight) {
         this.weight = weight;
     }
-
 
     @Override
     public String toString() {

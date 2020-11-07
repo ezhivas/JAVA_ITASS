@@ -1,3 +1,5 @@
+package task_at_7;
+
 import java.util.Scanner;
 
 public class DemoClass {

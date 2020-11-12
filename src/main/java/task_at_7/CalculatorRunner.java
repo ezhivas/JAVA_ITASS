@@ -18,9 +18,7 @@ public class CalculatorRunner {
         logger.addHandler(consoleHandler);
         logger.config("Program starts right from here");
         Calculator calculator = new Calculator();
-
         int value1, value2, levelValue;
-
         System.out.println("Enter the level of logging:\n" +
                 "1.Finer\n" +
                 "2.Fine\n" +
@@ -49,17 +47,13 @@ public class CalculatorRunner {
                 logger.setLevel(Level.FINEST);
                 logger.info("Level set to: " + logger.getLevel());
         }
-
-
         System.out.println("Enter the first number:");
         value1 = Integer.parseInt(calculator.inputFromConsole());
         SomeLogger();
-
         System.out.println("Enter the first number:");
         value2 = Integer.parseInt(calculator.inputFromConsole());
         logger.info("Second number");
         SomeLogger();
-
         while (true) {
 
             System.out.println("Enter the operation:\n" +

@@ -12,5 +12,6 @@ public class Test4 {
         driver.get("https://demoqa.com/automation-practice-form/");
         WebElement button = driver.findElement(By.tagName("Submit"));
         System.out.println(button);
+        driver.quit();
     }
 }

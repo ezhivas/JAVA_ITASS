@@ -8,7 +8,6 @@ import java.util.List;
 
 public class Test5 {
 
-
 @Test
     public void test() {
     WebDriver driver = new ChromeDriver();
@@ -28,5 +27,6 @@ public class Test5 {
     dropDownList2.click();
     WebElement dropDownlist2_1 = driver.findElement(By.xpath("//*[text()='Delhi']"));
     dropDownlist2_1.click();
+    driver.quit();
 }
 }

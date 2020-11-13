@@ -17,9 +17,6 @@ public class Test1 {
         String source = driver.getPageSource();
         System.out.println("Source length of the page is: " + source.length());
         driver.quit();
-
     }
-
-
 }
 

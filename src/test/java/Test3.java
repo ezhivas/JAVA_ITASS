@@ -18,7 +18,6 @@ public class Test3 {
         driver.navigate().forward();
         driver.navigate().to("https://www.google.com.ua/search?q=w3");
         driver.navigate().refresh();
-        driver.close();
-
+        driver.quit();
     }
 }

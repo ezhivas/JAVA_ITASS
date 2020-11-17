@@ -4,15 +4,13 @@ import java.util.Scanner;
 
 public class CalculatorRunner {
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws Exception {
         System.out.println("Enter the two numbers to perform operations ");
         System.out.print("Enter the first number : ");
         Scanner a = new Scanner(System.in);
         int x = a.nextInt();
         System.out.print("Enter the second number : ");
         int y = a.nextInt();
-
         while (true) {
             System.out.println(" ");
             System.out.println("Choose the operation you want to perform ");
@@ -26,23 +24,19 @@ public class CalculatorRunner {
                 case 1:
                     System.out.println("Result : " + (x + y));
                     break;
-
                 case 2:
                     System.out.println("Result : " + (x - y));
                     break;
-
                 case 3:
                     System.out.println("Result : " + (x * y));
                     break;
-
                 case 4:
                     try {
                         System.out.print("Result : " + (x / y));
                         break;
                     } catch (ArithmeticException exception) {
-                        System.out.println("Division by Zero! ->");
+                        throw new Exception("You`re trying to divide by zero. Program quits.");
                     }
-
                 case 5:
                     System.out.println("'Exit' option selected.");
                     System.exit(0);

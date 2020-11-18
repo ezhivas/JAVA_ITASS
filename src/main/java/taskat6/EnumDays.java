@@ -25,15 +25,12 @@ public enum EnumDays {
     public String getTitle() {
         return dayValue;
     }
-
     public String getState() {
         return dayState;
     }
-
     public int getNumber() {
         return dayNumber;
     }
-
     public boolean badDay() {
         return dayState.contains("bad");
     }
@@ -44,7 +41,6 @@ public enum EnumDays {
         return "DayOfWeek ---" +
                 "name='" + dayValue + " day mood: " + dayState + '\n';
     }
-
     public static void getElementsOfEnum() {
         System.out.println("Printing all elements");
         System.out.println(Arrays.toString(EnumDays.values()));
@@ -55,7 +51,6 @@ public enum EnumDays {
             if (b) System.out.println("Day number: " + days.getNumber() + " name: " + days.getTitle());
         }
     }
-
     public static void getGoodDays() {
         System.out.println("Printing good states of the days");
         boolean b;
@@ -64,5 +59,12 @@ public enum EnumDays {
             if (!b) System.out.println("Good day status: " + days.getState());
         }
     }
+    public static String getDayByDayState(String state) {
+        String tempString;
+        for (EnumDays days : EnumDays.values()) {
+            if (days.dayState.equals(state))
+                return days.dayValue;
+        }
+        return "Nothing found";
+    }
 }
-
